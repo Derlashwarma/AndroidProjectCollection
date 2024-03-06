@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidProjectCollection</string>
+    <string name="name1">James</string>
+    <string name="name2">Alexander</string>
+    <string name="name3">Baxter</string>
+    <string name="name4">Leah</string>
+    <string name="name5">Andrew</string>
+    <string name="name6">Lebron</string>
+    <string name="name7">Amanda</string>
+    <string name="name8">Edward</string>
+</resources>
