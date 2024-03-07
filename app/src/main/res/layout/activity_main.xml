@@ -21,14 +21,16 @@
             android:layout_marginBottom="50sp"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"/>
+            android:layout_marginBottom="50sp"
+            android:text="Button Activity"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"/>
+            android:layout_marginBottom="50sp"
+            android:text="Calculator"/>
 
         <Button
             android:layout_width="match_parent"

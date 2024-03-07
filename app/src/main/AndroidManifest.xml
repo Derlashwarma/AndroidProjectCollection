@@ -12,10 +12,13 @@
         android:theme="@style/Theme.AndroidProjectCollection"
         tools:targetApi="31">
         <activity
-            android:name=".LayoutExcercise"
+            android:name=".CloseThis"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".CalculatorActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".ButtonActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LayoutExcercise"
+            android:exported="false"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
