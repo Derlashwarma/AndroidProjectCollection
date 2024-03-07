@@ -20,10 +20,28 @@ public class CalculatorActivity extends AppCompatActivity {
         Button button = (Button) v;
         String buttonText = button.getText().toString();
 
-        // Assuming the button text is the number you want to add
         String currentText = equation.getText().toString();
-        String newText = currentText + buttonText;
+
+        String newText;
+        if(isOperand(buttonText)){
+            newText = currentText.substring(0, currentText.length() - 1) + buttonText.charAt(0);
+        }
+        else{
+            newText = currentText + buttonText;
+        }
 
         equation.setText(newText);
+    }
+
+    private boolean isOperand(String operand){
+        switch(operand){
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                return true;
+            default:
+                return false;
+        }
     }
 }
