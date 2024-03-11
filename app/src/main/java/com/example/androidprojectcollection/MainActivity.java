@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Button layoutbtn;
     Button btnActivity;
+    Button calculatorBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LayoutExcercise.class);
+                startActivity(intent);
+            }
+        });
+        btnActivity = (Button)findViewById(R.id.btn_activity);
+        btnActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        calculatorBtn = (Button) findViewById(R.id.calculator_activity);
+        calculatorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
                 startActivity(intent);
             }
         });
