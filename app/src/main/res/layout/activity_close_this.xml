@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".CloseThis">
 
-    <Button
-        android:id="@+id/return_btn"
-        android:layout_margin="20sp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Return"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <Button
+            android:id="@+id/return_btn"
+            android:layout_margin="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Return"/>
+    </LinearLayout>
 
 </LinearLayout>

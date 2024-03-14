@@ -21,19 +21,36 @@
             android:paddingRight="10sp"
             android:textSize="20sp"
             />
-        <EditText
-            android:id="@+id/result"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:gravity="right"
-            android:paddingRight="10sp"
-            android:textSize="40sp"/>
+            android:orientation="horizontal"
+            android:paddingLeft="10sp"
+            >
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Delete"
+                android:onClick="addToDisplay"/>
+            <EditText
+                android:id="@+id/result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="right"
+                android:paddingRight="10sp"
+                android:textSize="40sp"
+                android:background="#00000000"/>
+        </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10sp"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="5sp"
             >
             <TableRow
                 android:layout_weight="0.25">
