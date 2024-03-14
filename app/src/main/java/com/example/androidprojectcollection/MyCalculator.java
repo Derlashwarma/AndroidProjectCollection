@@ -30,6 +30,11 @@ public class MyCalculator {
     protected void evaluate() throws Exception{
         Stack<String> toOperate = new Stack<>();
         Stack<String> operators = new Stack<>();
+        char lastOperator = ' ';
+        if(isOperator(operation.charAt(operation.length()-1))){
+            lastOperator = operation.charAt(operation.length()-1);
+            this.operation = operation.substring(0,operation.length()-1);
+        }
 
         StringBuilder string = new StringBuilder();
         for(int i=0; i<operation.length(); i++){
@@ -50,7 +55,6 @@ public class MyCalculator {
             }
         }
         toOperate.push(string.toString());
-
         while (!operators.isEmpty()) {
             String operand2 = toOperate.pop();
             String operand1 = toOperate.pop();
@@ -64,7 +68,7 @@ public class MyCalculator {
 
         Double ans = new Double(toOperate.pop());
         answer = String.format("%.2f",ans);
-        operation = answer;
+        operation += Character.toString(lastOperator);
         System.out.println(answer);
     }
     private boolean isOperator(char c) {

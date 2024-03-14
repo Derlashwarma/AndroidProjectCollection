@@ -49,6 +49,7 @@ public class CalculatorActivity extends AppCompatActivity {
             catch (NumberFormatException e){}
             catch (Exception e){}
             result.setText(String.format("%.2f",ans));
+            equation.setText(String.format("%.2f",ans));
             return;
         }
 
