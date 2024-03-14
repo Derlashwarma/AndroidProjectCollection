@@ -42,7 +42,12 @@ public class CalculatorActivity extends AppCompatActivity {
                 result.setText("ERROR");
             }
             String answer = calculator.getAnswer();
-            Double ans = new Double(answer);
+            Double ans = new Double(0);
+            try{
+                ans = new Double(answer);
+            }
+            catch (NumberFormatException e){}
+            catch (Exception e){}
             result.setText(String.format("%.2f",ans));
             return;
         }
