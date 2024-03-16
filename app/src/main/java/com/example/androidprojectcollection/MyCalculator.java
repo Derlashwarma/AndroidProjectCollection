@@ -3,43 +3,91 @@ package com.example.androidprojectcollection;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Stack;
 
 public class MyCalculator {
-    private String operation;
-    private String answer;
-    public MyCalculator() {
-        this.operation = "";
-        this.answer = "";
+    private StringBuilder operation;
+    private StringBuilder answer;
+
+    TextView equation;
+    TextView result;
+    private boolean canDecimal;
+    private static char lastInput;
+
+    public MyCalculator(TextView equation, TextView result) {
+        this.result = result;
+        this.equation = equation;
+
+        operation = new StringBuilder();
+        answer = new StringBuilder();
+
+        operation.append("0");
+
+        canDecimal = true;
+
+        lastInput = ' ';
     }
-    public void remove(View v){
-        int size = operation.length();
-        try{
-            operation = operation.substring(0,size-1);
+    public void remove(){
+        if (operation.length() == 1){
+            operation.setCharAt(0,'0');
+            return;
         }
-        catch (Exception e){}
-        answer = operation;
+        if(operation.charAt(operation.length()-1) == '.'){
+            canDecimal = true;
+        }
+        operation.deleteCharAt(operation.length()-1);
+        equation.setText(operation.toString());
+    }
+    public void append(String elem){
+        if (elem.equals("=")){
+            if(operation.length() < 1){
+                return;
+            }
+            try{
+                evaluate();
+                remove();
+                result.setText(answer.toString());
+            }
+            catch (Exception e){}
+            return;
+        }
+        if(isOperator(elem.charAt(0))){
+            canDecimal = true;
+        }
+        if(isOperator(elem.charAt(0)) && isOperator(last())){
+            remove();
+        }
+        lastInput = elem.charAt(0);
+        operation.append(elem);
+        equation.setText(operation.toString());
+    }
+    public void appendDot(){
+        if(last() == '.' ){
+            remove();
+        }
+        else if(canDecimal){
+            append(".");
+            canDecimal = false;
+        }
     }
     public String getAnswer() {
-        System.out.println(answer);
-        return answer;
+        return answer.toString();
     }
-    public void addText(String operation){
-        this.operation = operation;
-    }
-    protected void evaluate() throws Exception{
+    private void evaluate() throws Exception{
         Stack<String> toOperate = new Stack<>();
         Stack<String> operators = new Stack<>();
         char lastOperator = ' ';
         if(isOperator(operation.charAt(operation.length()-1))){
             lastOperator = operation.charAt(operation.length()-1);
-            this.operation = operation.substring(0,operation.length()-1);
+            operation.substring(0,operation.length()-1);
         }
 
         StringBuilder string = new StringBuilder();
         for(int i=0; i<operation.length(); i++){
             char c = operation.charAt(i);
-            if(isOperator(operation.charAt(i))){
+            if(isOperator(c)){
                 toOperate.push(string.toString());
                 string = new StringBuilder();
 
@@ -62,13 +110,13 @@ public class MyCalculator {
             try{
                 toOperate.push(applyOperator(operand1, operand2, operator));
             }catch(ArithmeticException e){
-                answer = "Cannot divide by zero";
+                answer = new StringBuilder("Cannot divide by zero");
             }
         }
 
-        Double ans = new Double(toOperate.pop());
-        answer = String.format("%.2f",ans);
-        operation += Character.toString(lastOperator);
+        Double ans = Double.valueOf(toOperate.pop());
+        answer = new StringBuilder(String.format("%.2f",ans));
+        operation.append(lastOperator);
         System.out.println(answer);
     }
     private boolean isOperator(char c) {
@@ -115,5 +163,9 @@ public class MyCalculator {
 
         }
         return 0;
+    }
+
+    private char last(){
+        return operation.charAt(operation.length()-1);
     }
 }
