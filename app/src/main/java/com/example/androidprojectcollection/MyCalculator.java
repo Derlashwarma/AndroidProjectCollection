@@ -5,6 +5,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class MyCalculator {
@@ -55,6 +57,8 @@ public class MyCalculator {
         }
         if(isOperator(elem.charAt(0))){
             canDecimal = true;
+            equals();
+            result.setText(answer.toString());
         }
         if(isOperator(elem.charAt(0)) && isOperator(last())){
             remove();
@@ -64,7 +68,7 @@ public class MyCalculator {
         equation.setText(operation.toString());
     }
     public void appendDot(){
-        if(last() == '.' ){
+        if(last() == '.'){
             remove();
         }
         else if(canDecimal){
@@ -72,9 +76,42 @@ public class MyCalculator {
             canDecimal = false;
         }
     }
-    public String getAnswer() {
-        return answer.toString();
+    private void equals() throws ArithmeticException {
+        Deque<Double> numbers = new LinkedList<>();
+        Deque<Character> operators = new LinkedList<>();
+        StringBuilder nums = new StringBuilder();
+
+        for (int i = 0; i < operation.length(); i++) {
+            if (isOperator(operation.charAt(i))) {
+                numbers.addLast(Double.parseDouble(nums.toString()));
+                nums = new StringBuilder();
+                operators.addLast(operation.charAt(i));
+                continue;
+            }
+            nums.append(operation.charAt(i));
+        }
+        if (nums.length() > 0) {
+            numbers.addLast(Double.parseDouble(nums.toString()));
+        }
+
+        double equalAnswer = 0;
+        while (!operators.isEmpty()) {
+            double num1 = numbers.removeFirst();
+            char op = operators.removeFirst();
+            double num2 = numbers.removeFirst();
+            try {
+                equalAnswer = apply(num1, num2, op);
+            }
+            catch (ArithmeticException e){
+                answer = new StringBuilder("error");
+                return;
+            }
+            numbers.addFirst(equalAnswer);
+        }
+        answer = new StringBuilder(String.format("%.2f", equalAnswer));
     }
+
+
     private void evaluate() throws Exception{
         Stack<String> toOperate = new Stack<>();
         Stack<String> operators = new Stack<>();
@@ -99,7 +136,7 @@ public class MyCalculator {
                 }
                 operators.push(Character.toString(c));
             } else {
-                string.append(Character.toString(c));
+                string.append(c);
             }
         }
         toOperate.push(string.toString());
@@ -143,6 +180,26 @@ public class MyCalculator {
             case "/":
                 if (num2 != 0) {
                     return Double.toString(num1 / num2);
+                } else {
+                    throw new ArithmeticException("Division by zero");
+                }
+            default:
+                throw new IllegalArgumentException("Invalid operator");
+        }
+    }
+
+    private double apply(double operand1, double operand2, char operator) throws ArithmeticException{
+
+        switch (operator) {
+            case '+':
+                return (operand1) + (operand2);
+            case '-':
+                return ((operand1) - (operand2));
+            case '*':
+                return ((operand1) * (operand2));
+            case '/':
+                if ((operand2) != 0) {
+                    return ((operand1) / (operand2));
                 } else {
                     throw new ArithmeticException("Division by zero");
                 }
