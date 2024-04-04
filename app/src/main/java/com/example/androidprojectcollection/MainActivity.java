@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     Button layoutbtn;
     Button btnActivity;
     Button calculatorBtn;
+    Button match3Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        match3Btn = findViewById(R.id.match3_btn);
+        match3Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Match3.class));
             }
         });
     }

@@ -17,27 +17,26 @@
             android:id="@+id/layout_activity_btn"
             android:text="Layout Activity"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"/>
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btn_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"
             android:text="Button Activity"/>
 
         <Button
             android:id="@+id/calculator_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"
             android:text="Calculator"/>
 
+
         <Button
+            android:id="@+id/match3_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Activity Yet"/>
+            android:text="Match 3"/>
 
 
     </LinearLayout>
