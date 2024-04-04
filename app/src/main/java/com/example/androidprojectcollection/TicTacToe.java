@@ -1,4 +1,4 @@
-package com.example.lauronmidtermexamproject;
+package com.example.androidprojectcollection;
 
 import androidx.appcompat.app.AppCompatActivity;
 
