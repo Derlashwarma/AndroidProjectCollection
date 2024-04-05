@@ -71,50 +71,45 @@ public class Match3 extends AppCompatActivity {
                             swap(previousX,finalX,previousY,finalY);
                             previousX = -1;
                             previousY = -1;
-                            checkColumn();
-                            checkRow();
-                            colorBoxes();
+                            while(checkRow());
+                            while(checkColumn());
                             isPLayer1 = !isPLayer1;
                             setAllClickable();
-                            checkColumn();
-                            checkRow();
                         }
                     }
                 });
             }
         }
         generateRandomValues();
-        checkRow();
-        checkColumn();
-        colorBoxes();
-        checkRow();
-        checkColumn();
+        while(checkRow());
+        while(checkColumn());
         colorBoxes();
     }
-    private void checkColumn(){
+    private boolean checkColumn(){
         for (int x=0; x<5; x++){
             for (int y=1; y<4; y++){
                 if((values[x][y] == values[x][y+1]) && (values[x][y] == values[x][y-1])){
                     randomizeValues(x,x,x,y,y+1,y-1);
-                    colorBoxes();
                     addScore();
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
 
-    private void checkRow(){
+    private boolean checkRow(){
+        boolean found = false;
         for (int y=0; y<5; y++){
             for (int x=1; x<4; x++){
                 if((values[x][y] == values[x+1][y]) && (values[x][y] == values[x-1][y])){
                     randomizeValues(x,x+1,x-1,y,y,y);
-                    colorBoxes();
                     addScore();
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
     private void addScore(){
             int player1Score = Integer.parseInt(p1Score.getText().toString());
@@ -125,6 +120,7 @@ public class Match3 extends AppCompatActivity {
         values[x1][y1] = r.nextInt(4);
         values[x2][y2] = r.nextInt(4);
         values[x3][y3] = r.nextInt(4);
+        colorBoxes();
     }
 
     private void swap(int x1, int x2, int y1, int y2){
