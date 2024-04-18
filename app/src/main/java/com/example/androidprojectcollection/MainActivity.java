@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnActivity;
     Button calculatorBtn;
     Button match3Btn;
+    Button passing_intents_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Match3.class));
+            }
+        });
+
+        passing_intents_btn = findViewById(R.id.passing_intents_btn);
+        passing_intents_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PassingIntentsExercise.class));
             }
         });
     }

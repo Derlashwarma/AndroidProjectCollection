@@ -21,7 +21,7 @@ public class ButtonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_button);
+        setContentView(R.layout.activity_button_exercise);
 
         close_btn = (Button)findViewById(R.id.close_btn);
         close_btn.setOnClickListener(new View.OnClickListener() {
