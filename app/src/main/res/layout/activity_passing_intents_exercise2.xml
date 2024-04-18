@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".PassingIntentsExercise2"
     android:orientation="vertical"
-    android:paddingHorizontal="10sp">
+    android:paddingHorizontal="10sp"
+    android:background="@mipmap/circle_round">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/button">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,7 +45,8 @@
                     android:id="@+id/fname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".3"/>
+                    android:layout_weight=".3"
+                    android:background="@color/cardview_light_background"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,6 +63,7 @@
                     android:id="@+id/lname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -77,6 +82,7 @@
                     android:id="@+id/g"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -95,6 +101,7 @@
                     android:id="@+id/birth_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -113,6 +120,7 @@
                     android:id="@+id/birth_place"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -131,6 +139,7 @@
                     android:id="@+id/m"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -149,6 +158,7 @@
                     android:id="@+id/f"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -167,6 +177,7 @@
                     android:id="@+id/s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -185,6 +196,7 @@
                     android:id="@+id/p"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -203,6 +215,7 @@
                     android:id="@+id/e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
@@ -221,6 +234,7 @@
                     android:id="@+id/a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/cardview_light_background"
                     android:layout_weight=".3"/>
             </LinearLayout>
 
