@@ -71,19 +71,19 @@ public class Match3 extends AppCompatActivity {
                             swap(previousX,finalX,previousY,finalY);
                             previousX = -1;
                             previousY = -1;
+                            setAllClickable();
                             while(checkRow());
                             while(checkColumn());
-                            isPLayer1 = !isPLayer1;
-                            setAllClickable();
                         }
                     }
                 });
             }
         }
         generateRandomValues();
+        colorBoxes();
         while(checkRow());
         while(checkColumn());
-        colorBoxes();
+        setAllClickable();
     }
     private boolean checkColumn(){
         for (int x=0; x<5; x++){
@@ -150,6 +150,7 @@ public class Match3 extends AppCompatActivity {
         for(int x=0; x<5; x++){
             for (int y=0; y<5; y++){
                 buttons[x][y].setClickable(false);
+                //buttons[x][y].setBackgroundResource(R.drawable.blue_button);
             }
         }
     }
@@ -157,28 +158,30 @@ public class Match3 extends AppCompatActivity {
         for(int x=0; x<5; x++){
             for (int y=0; y<5; y++){
                 buttons[x][y].setClickable(true);
+                int val = values[x][y];
+                buttons[x][y].setBackgroundResource(colors[val]);
             }
         }
     }
     private void setAdjacentClickable(int x, int y){
         try{
             buttons[x+1][y].setClickable(true);
+           // buttons[x+1][y].setBackgroundResource(R.drawable.green_button);
         }
         catch (Exception e){}
         try{
             buttons[x-1][y].setClickable(true);
-        }
-        catch (Exception e){}
-        try{
-            buttons[x+1][y].setClickable(true);
+           // buttons[x-1][y].setBackgroundResource(R.drawable.green_button);
         }
         catch (Exception e){}
         try{
             buttons[x][y+1].setClickable(true);
+            //buttons[x][y+1].setBackgroundResource(R.drawable.green_button);
         }
         catch (Exception e){}
         try{
             buttons[x][y-1].setClickable(true);
+           // buttons[x][y-1].setBackgroundResource(R.drawable.green_button);
         }
         catch (Exception e){}
     }
