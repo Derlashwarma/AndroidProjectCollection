@@ -13,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
     Button calculatorBtn;
     Button match3Btn;
     Button passing_intents_btn;
+    Button midterm_btn;
+
+    Button menus_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        midterm_btn = (Button) findViewById(R.id.midterm_btn);
+        midterm_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TicTacToe.class);
+                startActivity(intent);
+            }
+        });
+
         match3Btn = findViewById(R.id.match3_btn);
         match3Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, PassingIntentsExercise.class));
+            }
+        });
+
+        menus_btn = findViewById(R.id.menus_btn);
+        menus_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuExercise.class));
             }
         });
     }

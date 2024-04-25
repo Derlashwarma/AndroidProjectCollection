@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Change"
+        android:id="@+id/mItemChange">
+            <menu>
+                <item android:title="Change Color"
+                    android:id="@+id/change_color"/>
+                <item android:title="Change Height"
+                    android:id="@+id/make_taller"/>
+                <item android:title="Make Change Width"
+                    android:id="@+id/make_wider"/>
+                <item android:title="Change Visibility"
+                    android:id="@+id/make_transparent"/>
+                <item android:title="Change Orientation"
+                    android:id="@+id/change_orientation"/>
+
+            </menu>
+    </item>
+    <item
+        android:id="@+id/mItemReset"
+        android:title="Reset" />
+    <item
+        android:id="@+id/mItemExit"
+        android:title="Exit" />
+</menu>
