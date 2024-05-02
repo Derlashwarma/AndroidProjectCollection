@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button midterm_btn;
 
     Button menus_btn;
+    Button maps_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MenuExercise.class));
             }
+        });
+
+        maps_btn = findViewById(R.id.maps_btn);
+        maps_btn.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, MapsExercise.class));
         });
     }
 }
